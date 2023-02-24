@@ -10,16 +10,17 @@
   <script src="{{ asset('js/all.min.js') }}"></script>
 
   <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
   <header class="relative w-full h-36">
-    <img src="{{ asset('assets/Fondo_header.png') }}" alt=""
-      class="absolute top-0 left-0 w-full h-full object-cover">
+    <img src="{{ asset('assets/background2.jpg') }}" alt=""
+      class=" absolute top-0 left-0 w-full h-full object-cover">
     <div
       class="relative z-1 h-full container max-w-screen-xl mx-auto  p-2 flex flex-col justify-between sm:flex-row sm:items-center">
       <a href="{{ route('index') }}" class="w-36 h-24"><img src="{{ asset('assets/Logo.png') }}" alt=""
-          class="w-full h-full"></a>
+          class="logo w-full h-full"></a>
       <div class="text-white font-medium">
         <p class=""><i class="fa-solid fa-location-dot pr-2"></i>C. Dias Romero #1370, La Paz - Bolivia</p>
         <p class=""><i class="fa-solid fa-phone pr-2"></i>222 06 55, 222 06 05</p>
@@ -29,7 +30,7 @@
 
   <nav class="bg-gray-900 relative text-white text-2xl py-4 px-2">
     <div class="container max-w-screen-xl mx-auto flex flex-wrap justify-between items-center">
-      <button id="btn-menu" class="px-1 pt-1 rounded-md md:hidden"><i class="fa-solid fa-bars w-8 h-8"></i></button>
+      <button id="btn-menu" class="px-1 py-1 rounded-md md:hidden"><i class="fa-solid fa-bars w-8 h-8"></i></button>
 
       <ul class="flex flex-row gap-1 md:order-2">
         <a href="#" target="_blank" rel="noopener noreferrer"
@@ -49,17 +50,20 @@
 
       <ul id="menu"
         class="block w-full h-56 flex flex-col justify-evenly gap-1 md:gap-4 hidden md:w-auto md:h-auto md:block md:order-1 md:flex md:flex-row">
-        <li id="menu-item" class="text-center text-xl"><a href="{{ route('quienessomos') }}"
-            class="p-2 md:p-0 border-b-2 border-transparent hover:border-white {{ request()->routeIs('quienessomos') ? 'border-white':''}}">Quienes
-            somos</a></li>
+        <li id="menu-item" class="text-center text-xl">
+          <a href="{{ route('quienessomos') }}"
+            class="text-slate-400 hover:text-slate-50 {{ request()->routeIs('quienessomos') ? 'text-slate-50':''}}">Quienes
+            somos
+          </a>
+        </li>
         <li id="menu-item" class="text-center text-xl"><a href="{{ route('programacion') }}"
-            class="p-2 md:p-0 border-b-2 border-transparent hover:border-white {{ request()->routeIs('programacion') ? 'border-white':''}}">Programación</a>
+            class=" text-slate-400 hover:text-slate-50 {{ request()->routeIs('programacion') ? 'text-slate-50':''}}">Programación</a>
         </li>
         <li id="menu-item" class="text-center text-xl"><a href="{{ route('programas') }}"
-            class="p-2 md:p-0 border-b-2 border-transparent hover:border-white {{ request()->routeIs('programas') ? 'border-white':''}}">Programas</a>
+            class="text-slate-400 hover:text-slate-50 {{ request()->routeIs('programas') ? 'text-slate-50':''}}">Programas</a>
         </li>
         <li id="menu-item" class="text-center text-xl"><a href="{{ route('contactos') }}"
-            class="p-2 md:p-0 border-b-2 border-transparent hover:border-white {{ request()->routeIs('contactos') ? 'border-white':''}}">Contactos</a>
+            class="text-slate-400 hover:text-slate-50 {{ request()->routeIs('contactos') ? 'text-slate-50':''}}">Contactos</a>
         </li>
       </ul>
 
