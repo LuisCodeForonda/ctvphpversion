@@ -82,9 +82,13 @@ class BannerController extends Controller
      * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(BannerRequest $request, Banner $banner)
+    public function update(Request $request, Banner $banner)
     {
         //
+        $request->validate([
+            'nombre' => ['required'],
+            'hora' => ['required'],
+        ]);
         $datos_banner = request()->except(['_token', '_method']);
         
         if($request->hasFile('logo')){

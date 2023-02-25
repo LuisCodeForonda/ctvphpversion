@@ -81,9 +81,16 @@ class ProgramaController extends Controller
      * @param  \App\Models\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function update(ProgramaRequest $request, Programa $programa)
+    public function update(Request $request, Programa $programa)
     {
         //
+        $request->validate([
+            'nombre' => ['required'],
+            'hora_inicio' => ['required'],
+            'hora_fin' => ['required'],
+            'descripcion' => ['required'],
+        ]);
+        
         $datos_programa = request()->except(['_token', '_method']);
         
         if($request->hasFile('foto')){

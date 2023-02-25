@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>Crear un nuevo registro</p>
+    <p>Editar el registro</p>
     <a href="{{ route('programas.index') }}">Regresar</a>
 
     <form action="{{ route('programas.update', $programa) }}" method="post" enctype="multipart/form-data">

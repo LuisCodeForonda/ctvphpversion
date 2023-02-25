@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoticiaRequest;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class NoticiaController extends Controller
     public function index()
     {
         //
-        return view('noticias.index', ['noticia'=> new Noticia()]);
+        return view('noticias.index');
     }
 
     /**
@@ -26,6 +27,7 @@ class NoticiaController extends Controller
     public function create()
     {
         //
+        return view('noticias.create', ['noticia'=> new Noticia()]);
     }
 
     /**
@@ -34,9 +36,12 @@ class NoticiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiaRequest $request)
     {
         //
+        $datos_noticia =   request()->except((['_token']));
+
+        Noticia
     }
 
     /**

@@ -8,9 +8,9 @@
 
 @section('content')
     <p>Bienvenido al apartado de noticias</p>
-    <a href="{{ route('programacion.create') }}">Nuevo</a>
+    <a href="{{ route('noticias.create') }}">Nuevo</a>
 
-    
+      
 @stop
 
 @section('css')

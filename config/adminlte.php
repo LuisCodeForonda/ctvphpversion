@@ -381,6 +381,7 @@ return [
                 ],
             ],
         ],
+        /*
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -396,7 +397,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ],*/
     ],
 
     /*

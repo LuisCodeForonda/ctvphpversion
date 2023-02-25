@@ -82,9 +82,13 @@ class MiniaturaController extends Controller
      * @param  \App\Models\Miniatura  $miniatura
      * @return \Illuminate\Http\Response
      */
-    public function update(MiniaturaRequest $request, Miniatura $miniatura)
+    public function update(Request $request, Miniatura $miniatura)
     {
         //
+        $request->validate([
+            'nombre' => ['required'],
+        ]);
+        
         $datos_miniatura = request()->except(['_token', '_method']);
         
         if($request->hasFile('foto')){
