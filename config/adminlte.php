@@ -343,6 +343,7 @@ return [
             'url'  => 'admin/miniaturas',
             'icon' => 'fas fa-solid fa-camera-retro',
         ],
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -380,7 +381,7 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
+        ], hasta aqui*/
         /*
         ['header' => 'labels'],
         [

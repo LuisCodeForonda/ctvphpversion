@@ -9,7 +9,7 @@
 @section('content')
     <p>Bienvenido al apartado de programación</p>
     <a href="{{ route('programacion.create') }}">Nuevo</a>
-
+    <p>{{ session('status') }}</p>
     <table>
         <thead>
             <tr>
@@ -40,7 +40,7 @@
                     <form action="{{ route('programacion.destroy', $programacion) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="Eliminar">
+                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
                     </form>
                 </td>
             </tr>

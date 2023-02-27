@@ -10,7 +10,34 @@
     <p>Bienvenido al apartado de noticias</p>
     <a href="{{ route('noticias.create') }}">Nuevo</a>
 
-      
+    <table>
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Titulo</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($noticias as $noticia)
+            <tr>
+                <td>
+                <img src="{{ asset('storage').'/'.$noticia->foto }}" alt="" width="100" height="100">
+                </td>
+                <td>{{ $noticia->titulo}}</td>
+                <td>{{ $noticia->categoria}}</td>
+                <td><a href="{{ route('noticias.edit', $noticia) }}">Editar</a>|
+                <form action="{{ route('noticias.destroy', $noticia) }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
+                </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 @stop
 
 @section('css')
@@ -18,5 +45,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 @stop

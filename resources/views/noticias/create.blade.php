@@ -8,10 +8,10 @@
 
 @section('content')
     <p>Bienvenido al apartado de noticias</p>
-    <a href="{{ route('programas.create') }}">Nuevo</a>
+    <a href="{{ route('noticias.index') }}">Regresar</a>
     <p>{{ session('status') }}</p>
     
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('noticias.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         @include('noticias.form')
         <input type="submit" value="Guardar">
@@ -23,5 +23,13 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+   
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @stop

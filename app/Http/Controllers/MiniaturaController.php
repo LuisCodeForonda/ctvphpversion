@@ -95,7 +95,7 @@ class MiniaturaController extends Controller
 
             Storage::delete('public/'.$miniatura->foto);
 
-            $datos_banner['logo'] = $request->file('foto')->store('uploads', 'public');
+            $datos_miniatura['foto'] = $request->file('foto')->store('uploads', 'public');
         }
         
         Miniatura::where('id', '=', $miniatura->id)->update($datos_miniatura);

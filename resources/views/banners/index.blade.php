@@ -33,7 +33,7 @@
                     <form action="{{ route('banners.destroy', $banner) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="Eliminar">
+                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
                     </form></td>
                     
                 </tr>

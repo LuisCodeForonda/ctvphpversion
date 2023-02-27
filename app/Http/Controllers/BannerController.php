@@ -89,11 +89,12 @@ class BannerController extends Controller
             'nombre' => ['required'],
             'hora' => ['required'],
         ]);
+
         $datos_banner = request()->except(['_token', '_method']);
         
         if($request->hasFile('logo')){
 
-            Storage::delete('public/'.$banner->foto);
+            Storage::delete('public/'.$banner->logo);
 
             $datos_banner['logo'] = $request->file('logo')->store('uploads', 'public');
         }

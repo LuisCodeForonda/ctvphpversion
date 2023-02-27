@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Miniatura extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'titulo',
+        'slug',
+        'foto',
+        'cuerpo',
+        'fecha_hora',
+        'categoria',
+    ];
 }

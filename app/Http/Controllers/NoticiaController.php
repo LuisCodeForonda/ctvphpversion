@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NoticiaRequest;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class NoticiaController extends Controller
 {
@@ -16,7 +19,8 @@ class NoticiaController extends Controller
     public function index()
     {
         //
-        return view('noticias.index');
+        $noticias = Noticia::orderBy('id', 'desc')->paginate(5);
+        return view('noticias.index', compact('noticias'));
     }
 
     /**
@@ -39,9 +43,15 @@ class NoticiaController extends Controller
     public function store(NoticiaRequest $request)
     {
         //
-        $datos_noticia =   request()->except((['_token']));
+        $datos_noticia =  request()->except((['_token']));
+        $datos_noticia['slug'] = Str::slug($datos_noticia['titulo']);
+        
+        if($request->hasFile('foto')){
+            $datos_noticia['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
 
-        Noticia
+        Noticia::insert($datos_noticia);
+        return Redirect()->route('noticias.index')->with('status', 'Registro agregado exitosamente');
     }
 
     /**
@@ -64,6 +74,7 @@ class NoticiaController extends Controller
     public function edit(Noticia $noticia)
     {
         //
+        return view('noticias.edit', compact('noticia'));
     }
 
     /**
@@ -76,6 +87,24 @@ class NoticiaController extends Controller
     public function update(Request $request, Noticia $noticia)
     {
         //
+        $request->validate([
+            'titulo' => ['required'],
+            'cuerpo' => ['required'],
+            'fecha_hora' => ['required'],
+        ]);
+
+        $datos_noticia = request()->except(['_token', '_method']);
+        $datos_noticia['slug'] = Str::slug($datos_noticia['titulo']);
+
+        if($request->hasFile('foto')){
+
+            Storage::delete('public/'.$noticia->foto);
+
+            $datos_noticia['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
+
+        Noticia::where('id', '=', $noticia->id)->update($datos_noticia);
+        return Redirect()->route('noticias.index')->with('status', 'Registro actualizado exitosamente');
     }
 
     /**
@@ -87,5 +116,9 @@ class NoticiaController extends Controller
     public function destroy(Noticia $noticia)
     {
         //
+        if(Storage::delete('public/'.$noticia->foto)){
+            $noticia->delete();
+        }
+        return redirect()->route('noticias.index')->with('status', 'Registro eliminado exitosamente');
     }
 }

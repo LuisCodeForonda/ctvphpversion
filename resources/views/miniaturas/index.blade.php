@@ -25,14 +25,13 @@
                     <td>
                     <img src="{{ asset('storage').'/'.$miniatura->foto }}" alt="" width="100px" height="100px">
                     </td>
-                    <td>{{ $miniatura->foto }}</td>
                     <td>{{ $miniatura->nombre }}</td>
                     <td><a href="{{ route('miniaturas.edit', $miniatura)}}">Editar</a> | 
                     
                     <form action="{{ route('miniaturas.destroy', $miniatura) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="Eliminar">
+                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
                     </form></td>
                     
                 </tr>
