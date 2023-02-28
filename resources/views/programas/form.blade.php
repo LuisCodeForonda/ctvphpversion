@@ -48,6 +48,29 @@
     @enderror
 <br>
 
+<label for="categoria">Categoria</label>
+<input type="radio" name="categoria" id="" value="1" checked @if (old('categoria') == 1 || $programa->categoria == 1)
+checked
+@endif>
+<label for="categoria">Religiosos</label>
+<input type="radio" name="categoria" id="" value="2" @if (old('categoria') == 2 || $programa->categoria == 2)
+        checked
+    @endif>
+<label for="categoria">Noticieros</label>
+<input type="radio" name="categoria" id="" value="3" @if (old('categoria') == 3 || $programa->categoria == 3)
+        checked
+    @endif>
+<label for="categoria">Analisis</label>
+<input type="radio" name="categoria" id="" value="4" @if (old('categoria') == 4 || $programa->categoria == 4)
+        checked
+    @endif>
+<label for="categoria">Familiares</label>
+<input type="radio" name="categoria" id="" value="5" @if (old('categoria') == 5 || $programa->categoria == 5)
+        checked
+    @endif>
+<label for="categoria">Entrenamiento</label>
+<br>
+
 <!-- Redes Sociales-->
 <label for="facebook">
     Facebook:

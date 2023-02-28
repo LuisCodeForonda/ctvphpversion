@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="relative">
+    <div class="relative" id="slide_contenedor">
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96">
             <img loading="lazy" src="{{ asset('assets/Programa1.png') }}" alt="" class="w-full h-full">
         </picture>
@@ -87,4 +87,41 @@
             data-id="12">
         </div>
     </div>
+
+    <h1 class="text-3xl font-bold">Noticias</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-900 my-6">
+    
+        @foreach ($noticias as $item)
+        <div class="bg-blue-100 w-full mx-auto rounded-t-xl overflow-hidden">
+            <img loading="lazy" src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-56">
+            <div class="py-2">
+                <p>
+                <span class="text-red-600 font-bold">
+                    @if ($item->categoria == 1)
+                        Sociedad
+                    @endif 
+                    @if ($item->categoria == 2)
+                        Desastres y accidentes
+                    @endif
+                    @if ($item->categoria == 3)
+                    Seguridad
+                    @endif
+                    @if ($item->categoria == 4)
+                    Deportes
+                    @endif
+                    @if ($item->categoria == 5)
+                    Politica
+                    @endif
+                    @if ($item->categoria == 5)
+                    Entrenamiento
+                    @endif
+                </span> | {{ $item->fecha_hora }}</p>
+                <a href="{{ route('detallenoticia', $item->slug) }}" class="font-bold text-2xl">
+                    {{ $item->titulo }}
+                </a>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    
 @endsection

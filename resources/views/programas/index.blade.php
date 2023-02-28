@@ -15,6 +15,7 @@
             <tr>
                 <th>Foto</th>
                 <th>Nombre</th>
+                <th>Categoria</th>
                 <th>hora_incio</th>
                 <th>hora_fin</th>
                 <th>Acciones</th>
@@ -27,6 +28,7 @@
                     <img src="{{ asset('storage').'/'.$programa->foto }}" alt="" width="100px" height="100px">
                     </td>
                     <td>{{ $programa->nombre }}</td>
+                    <td>{{ $programa->categoria }}</td>
                     <td>{{ $programa->hora_inicio }}</td>
                     <td>{{ $programa->hora_fin }}</td>
                     <td><a href="{{ route('programas.edit', $programa)}}">Editar</a> | 

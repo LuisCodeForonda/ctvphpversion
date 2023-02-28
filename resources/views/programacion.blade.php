@@ -26,7 +26,12 @@
         <h3 class="py-4 font-medium">Lunes-Viernes</h3>
         <ul>
   
-          
+          @foreach ($lunesviernes as $item)
+          <li class="flex flex-row ">
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
+          </li>
+          @endforeach
   
           <li class="flex flex-row ">
             <strong class="inline-block border-t-4 border-red-600 p-4">05:55</strong>
@@ -121,6 +126,12 @@
         <h3 class="py-4 font-medium">Sábados</h3>
         <ul>
   
+          @foreach ($sabados as $item)
+          <li class="flex flex-row ">
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
+          </li>
+          @endforeach
           <li class="flex flex-row">
             <strong class="inline-block border-t-4 border-red-600 p-4">06:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CAMINO AL CIELO</p>
@@ -227,6 +238,12 @@
       <div id="tab-content" class="block p-6 hidden text-gray-800">
         <h3 class="py-4 font-medium">Domingos</h3>
         <ul>
+          @foreach ($domingos as $item)
+          <li class="flex flex-row ">
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
+          </li>
+          @endforeach
        
           <li class="flex flex-row">
             <strong class="inline-block border-t-4 border-red-600 p-4">06:00</strong>

@@ -32,6 +32,26 @@
   
         <div class="grid gap-6 grid grid-cols-1 md:grid-cols-2">
   
+          @foreach ($religiosos as $item)
+          <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
+            <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
+            <div class="p-4 text-center text-gray-900">
+              <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
+              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="leading-7">
+                {{ $item->descripcion }}
+              </p>
+          
+              <div class="flex flex-row justify-center gap-8 text-2xl mt-2">
+                <a href="{{ $item->facebook }}" class="hover:text-red-700 {{ $item->facebook == "" ? 'hidden':'' }}"><i class="fa-brands fa-facebook"></i></a>
+                <a href="{{ $item->twitter }}" class="hover:text-red-700 {{ $item->twitter == "" ? 'hidden':'' }}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{ $item->instagram }}" class="hover:text-red-700 {{ $item->instagram == "" ? 'hidden':'' }}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{ $item->tiktok }}" class="hover:text-red-700 {{ $item->tiktok == "" ? 'hidden':'' }}"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="{{ $item->youtube }}" class="hover:text-red-700 {{ $item->youtube == "" ? 'hidden':'' }}"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          @endforeach
           {{-- {% for indice in religiosos %}
   
             <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
@@ -62,6 +82,26 @@
   
         <div class="grid gap-4 grid grid-cols-1 md:grid-cols-2">
   
+          @foreach ($noticieros as $item)
+          <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
+            <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
+            <div class="p-4 text-center text-gray-900">
+              <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
+              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="leading-7">
+                {{ $item->descripcion }}
+              </p>
+          
+              <div class="flex flex-row justify-center gap-8 text-2xl mt-2">
+                <a href="{{ $item->facebook }}" class="hover:text-red-700 {{ $item->facebook == "" ? 'hidden':'' }}"><i class="fa-brands fa-facebook"></i></a>
+                <a href="{{ $item->twitter }}" class="hover:text-red-700 {{ $item->twitter == "" ? 'hidden':'' }}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{ $item->instagram }}" class="hover:text-red-700 {{ $item->instagram == "" ? 'hidden':'' }}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{ $item->tiktok }}" class="hover:text-red-700 {{ $item->tiktok == "" ? 'hidden':'' }}"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="{{ $item->youtube }}" class="hover:text-red-700 {{ $item->youtube == "" ? 'hidden':'' }}"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          @endforeach
           {{-- {% for indice in noticieros %}
   
           <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
@@ -113,6 +153,26 @@
       <div id="tab-content" class="block p-6 hidden">
         <div class="grid gap-4 grid grid-cols-1 md:grid-cols-2">
   
+          @foreach ($analisis as $item)
+          <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
+            <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
+            <div class="p-4 text-center text-gray-900">
+              <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
+              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="leading-7">
+                {{ $item->descripcion }}
+              </p>
+          
+              <div class="flex flex-row justify-center gap-8 text-2xl mt-2">
+                <a href="{{ $item->facebook }}" class="hover:text-red-700 {{ $item->facebook == "" ? 'hidden':'' }}"><i class="fa-brands fa-facebook"></i></a>
+                <a href="{{ $item->twitter }}" class="hover:text-red-700 {{ $item->twitter == "" ? 'hidden':'' }}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{ $item->instagram }}" class="hover:text-red-700 {{ $item->instagram == "" ? 'hidden':'' }}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{ $item->tiktok }}" class="hover:text-red-700 {{ $item->tiktok == "" ? 'hidden':'' }}"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="{{ $item->youtube }}" class="hover:text-red-700 {{ $item->youtube == "" ? 'hidden':'' }}"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          @endforeach
           {{-- {% for indice in analisis %}
   
           <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
@@ -140,6 +200,26 @@
         
         <div class="grid gap-4 grid grid-cols-1 md:grid-cols-2">
   
+          @foreach ($familiares as $item)
+          <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
+            <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
+            <div class="p-4 text-center text-gray-900">
+              <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
+              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="leading-7">
+                {{ $item->descripcion }}
+              </p>
+          
+              <div class="flex flex-row justify-center gap-8 text-2xl mt-2">
+                <a href="{{ $item->facebook }}" class="hover:text-red-700 {{ $item->facebook == "" ? 'hidden':'' }}"><i class="fa-brands fa-facebook"></i></a>
+                <a href="{{ $item->twitter }}" class="hover:text-red-700 {{ $item->twitter == "" ? 'hidden':'' }}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{ $item->instagram }}" class="hover:text-red-700 {{ $item->instagram == "" ? 'hidden':'' }}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{ $item->tiktok }}" class="hover:text-red-700 {{ $item->tiktok == "" ? 'hidden':'' }}"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="{{ $item->youtube }}" class="hover:text-red-700 {{ $item->youtube == "" ? 'hidden':'' }}"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          @endforeach
           {{-- {% for indice in familiares %}
   
           <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
@@ -168,6 +248,26 @@
         
         <div class="grid gap-4 grid grid-cols-1 md:grid-cols-2">
   
+          @foreach ($entretenimiento as $item)
+          <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">
+            <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
+            <div class="p-4 text-center text-gray-900">
+              <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
+              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="leading-7">
+                {{ $item->descripcion }}
+              </p>
+          
+              <div class="flex flex-row justify-center gap-8 text-2xl mt-2">
+                <a href="{{ $item->facebook }}" class="hover:text-red-700 {{ $item->facebook == "" ? 'hidden':'' }}"><i class="fa-brands fa-facebook"></i></a>
+                <a href="{{ $item->twitter }}" class="hover:text-red-700 {{ $item->twitter == "" ? 'hidden':'' }}"><i class="fa-brands fa-twitter"></i></a>
+                <a href="{{ $item->instagram }}" class="hover:text-red-700 {{ $item->instagram == "" ? 'hidden':'' }}"><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{ $item->tiktok }}" class="hover:text-red-700 {{ $item->tiktok == "" ? 'hidden':'' }}"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="{{ $item->youtube }}" class="hover:text-red-700 {{ $item->youtube == "" ? 'hidden':'' }}"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          @endforeach
           {{-- {% for indice in entretenimiento %}
   
           <div class="shadow-xl rounded-xl overflow-hidden w-full max-w-sm mx-auto border-2 border-gray-400">

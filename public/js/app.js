@@ -102,7 +102,7 @@ if(!(tabs === null)){
             //mostrar los contenedores
             contents.forEach((content) => content.classList.add("hidden"))
             contents[index].classList.remove("hidden");
-            console.log(index);
+            //console.log(index);
         });
     });
 }
