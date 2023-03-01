@@ -28,7 +28,7 @@
   
           @foreach ($lunesviernes as $item)
           <li class="flex flex-row ">
-            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ substr($item->hora, 0, 5) }}</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
           </li>
           @endforeach
@@ -128,7 +128,7 @@
   
           @foreach ($sabados as $item)
           <li class="flex flex-row ">
-            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ substr($item->hora, 0, 5) }}</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
           </li>
           @endforeach
@@ -240,7 +240,7 @@
         <ul>
           @foreach ($domingos as $item)
           <li class="flex flex-row ">
-            <strong class="inline-block border-t-4 border-red-600 p-4">{{ $item->hora }}</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4">{{ substr($item->hora, 0, 5) }}</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
           </li>
           @endforeach

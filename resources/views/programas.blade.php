@@ -37,7 +37,7 @@
             <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
             <div class="p-4 text-center text-gray-900">
               <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
-              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="text-lg font-semibold py-2">{{ substr($item->hora_inicio, 0, 5) }} - {{  substr($item->hora_fin, 0, 5) }}</p>
               <p class="leading-7">
                 {{ $item->descripcion }}
               </p>
@@ -87,7 +87,7 @@
             <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
             <div class="p-4 text-center text-gray-900">
               <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
-              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="text-lg font-semibold py-2">{{ substr($item->hora_inicio, 0, 5) }} - {{  substr($item->hora_fin, 0, 5) }}</p>
               <p class="leading-7">
                 {{ $item->descripcion }}
               </p>
@@ -158,7 +158,7 @@
             <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
             <div class="p-4 text-center text-gray-900">
               <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
-              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="text-lg font-semibold py-2">{{ substr($item->hora_inicio, 0, 5) }} - {{  substr($item->hora_fin, 0, 5) }}</p>
               <p class="leading-7">
                 {{ $item->descripcion }}
               </p>
@@ -205,7 +205,7 @@
             <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
             <div class="p-4 text-center text-gray-900">
               <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
-              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="text-lg font-semibold py-2">{{ substr($item->hora_inicio, 0, 5) }} - {{  substr($item->hora_fin, 0, 5) }}</p>
               <p class="leading-7">
                 {{ $item->descripcion }}
               </p>
@@ -253,7 +253,7 @@
             <img src="{{ asset('storage').'/'.$item->foto }}" alt="" class="w-full h-48 object-fill">
             <div class="p-4 text-center text-gray-900">
               <h3 class="text-2xl font-bold">{{ $item->nombre }}</h3>
-              <p class="text-lg font-semibold py-2">{{ $item->hora_inicio }} - {{ $item->hora_fin }}</p>
+              <p class="text-lg font-semibold py-2">{{ substr($item->hora_inicio, 0, 5) }} - {{  substr($item->hora_fin, 0, 5) }}</p>
               <p class="leading-7">
                 {{ $item->descripcion }}
               </p>

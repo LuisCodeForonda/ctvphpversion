@@ -3,8 +3,16 @@
 
 @section('content')
     <div class="relative" id="slide_contenedor">
+
+        @foreach ($banners as $banner)
+            <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96">
+                <img loading="lazy" src="{{ asset('storage').'/'.$banner->logo }}" alt="" class="w-full h-full">
+            </picture>
+        @endforeach
+
+        <!--
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96">
-            <img loading="lazy" src="{{ asset('assets/Programa1.png') }}" alt="" class="w-full h-full">
+            <img loading="lazy" src="assets/Programa1.png" alt="" class="w-full h-full">
         </picture>
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96 hidden ">
             <img loading="lazy" src="assets/Programa2.png" alt="" class="w-full h-full">
@@ -20,9 +28,9 @@
         </picture>
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96 hidden">
             <img loading="lazy" src="assets/Programa7.png" alt="" class="w-full h-full">
-        </picture>
+        </picture>-->
 
-        <!-- tarde -->
+        <!-- tarde 
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96 hidden ">
             <img loading="lazy" src="assets/Programat1.png" alt="" class="w-full h-full">
         </picture>
@@ -40,17 +48,24 @@
         </picture>
         <picture id="mySlides" class="block w-full h-64 sm:h-80 md:h-96 hidden">
             <img loading="lazy" src="assets/Programat6.png" alt="" class="w-full h-full">
-        </picture>
+        </picture>-->
 
 
 
-        <span id="prev" class="absolute top-2/4 bg-gray-200/75 rounded-r-lg px-1 py-1 cursor-pointer"><i
+        <span id="prev" class="absolute top-2/4 bg-gray-200/75 rounded-r-lg px-1 pt-1 cursor-pointer"><i
                 class="fa-solid fa-arrow-left w-6 h-6"></i></span>
-        <span id="next" class="absolute right-0 top-2/4 bg-gray-200/75 rounded-l-lg px-1 py-1 cursor-pointer"><i
+        <span id="next" class="absolute right-0 top-2/4 bg-gray-200/75 rounded-l-lg px-1 pt-1 cursor-pointer"><i
                 class="fa-solid fa-arrow-right w-6 h-6"></i></span>
     </div>
 
     <div class="relative flex flex-row justify-center p-4 gap-2">
+
+        @for ($i = 1; $i < sizeof($banners) + 1; $i++)
+            <div id="dot" class="w-5 h-5 rounded-full bg-gray-300 bg-gray-800 cursor-pointer" onclick="currentSlide({{ $i }})"
+            data-id="{{ $i }}"></div>
+        @endfor
+
+        <!--
         <div id="dot" class="w-5 h-5 rounded-full bg-gray-300 bg-gray-800 cursor-pointer" onclick="currentSlide(1)"
             data-id="1"></div>
         <div id="dot" class="w-5 h-5 rounded-full bg-gray-300 cursor-pointer" onclick="currentSlide(2)"
@@ -85,7 +100,8 @@
         </div>
         <div id="dot" class="w-5 h-5 rounded-full bg-gray-300 cursor-pointer" onclick="currentSlide(12)"
             data-id="12">
-        </div>
+        </div>-->
+
     </div>
 
     <h1 class="text-3xl font-bold">Noticias</h1>
@@ -104,18 +120,18 @@
                         Desastres y accidentes
                     @endif
                     @if ($item->categoria == 3)
-                    Seguridad
+                        Seguridad
                     @endif
                     @if ($item->categoria == 4)
-                    Deportes
+                        Deportes
                     @endif
                     @if ($item->categoria == 5)
-                    Politica
+                        Politica
                     @endif
-                    @if ($item->categoria == 5)
-                    Entrenamiento
+                    @if ($item->categoria == 6)
+                        Entrenamiento
                     @endif
-                </span> | {{ $item->fecha_hora }}</p>
+                </span> | {{ substr($item->fecha_hora, 0, 10)  }}</p>
                 <a href="{{ route('detallenoticia', $item->slug) }}" class="font-bold text-2xl">
                     {{ $item->titulo }}
                 </a>

@@ -95,6 +95,12 @@
             </div>
 
             <div class="flex flex-col gap-2 m-4 p-4 shadow-xl rounded-xl overflow-hidden">
+                @foreach ($miniaturas as $miniatura)
+                    <picture class="w-3/5 h-24 mx-auto sm:w-2/4 md:w-2/5 lg:w-3/5">
+                        <img loading="lazy" src="{{ asset('storage').'/'.$miniatura->foto }}" alt="" class="w-full h-full">
+                    </picture>
+                @endforeach
+                <!--
                 <picture class="w-3/5 h-24 mx-auto sm:w-2/4 md:w-2/5 lg:w-3/5">
                     <img loading="lazy" src="{{ asset('assets/RP1.jpg') }}" alt="" class="w-full h-full">
                 </picture>
@@ -108,7 +114,7 @@
                 </picture>
                 <picture class="w-3/5 h-24 mx-auto sm:w-2/4 md:w-2/5 lg:w-3/5">
                     <img loading="lazy" src="{{ asset('assets/DXTV_logo.jpg') }}" alt="" class="w-full h-full">
-                </picture>
+                </picture>-->
             </div>
 
         </div>
@@ -145,6 +151,10 @@
     </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script>
+        console.log(moment());
+    </script>
 </body>
 
 </html>
