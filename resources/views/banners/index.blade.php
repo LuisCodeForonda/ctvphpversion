@@ -40,7 +40,7 @@
             @endforeach
         </tbody>
     </table>
-
+    {{ $banners->links() }}
 @stop
 
 @section('css')

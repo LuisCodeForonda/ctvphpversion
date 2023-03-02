@@ -28,7 +28,23 @@
                     <img src="{{ asset('storage').'/'.$programa->foto }}" alt="" width="100px" height="100px">
                     </td>
                     <td>{{ $programa->nombre }}</td>
-                    <td>{{ $programa->categoria }}</td>
+                    <td>
+                        @if ($programa->categoria == 1)
+                            Religiosos
+                        @endif
+                        @if ($programa->categoria == 2)
+                            Noticieros
+                        @endif
+                        @if ($programa->categoria == 3)
+                            Analisis
+                        @endif
+                        @if ($programa->categoria == 4)
+                            Familiares
+                        @endif
+                        @if ($programa->categoria == 5)
+                            Entrenamiento
+                        @endif
+                    </td>
                     <td>{{ $programa->hora_inicio }}</td>
                     <td>{{ $programa->hora_fin }}</td>
                     <td><a href="{{ route('programas.edit', $programa)}}">Editar</a> | 
@@ -43,6 +59,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $programas->links() }}
 @stop
 
 @section('css')

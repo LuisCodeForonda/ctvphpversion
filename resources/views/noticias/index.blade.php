@@ -26,7 +26,26 @@
                 <img src="{{ asset('storage').'/'.$noticia->foto }}" alt="" width="100" height="100">
                 </td>
                 <td>{{ $noticia->titulo}}</td>
-                <td>{{ $noticia->categoria}}</td>
+                <td>{{ $noticia->categoria}}
+                    @if ($noticia->categoria == 1)
+                        Sociedad
+                    @endif
+                    @if ($noticia->categoria == 2)
+                        Desastres y accidentes
+                    @endif
+                    @if ($noticia->categoria == 3)
+                        Seguridad
+                    @endif
+                    @if ($noticia->categoria == 4)
+                        Deportes
+                    @endif
+                    @if ($noticia->categoria == 5)
+                        Politica
+                    @endif
+                    @if ($noticia->categoria == 6)
+                        Entrenamiento
+                    @endif
+                </td>
                 <td><a href="{{ route('noticias.edit', $noticia) }}">Editar</a>|
                 <form action="{{ route('noticias.destroy', $noticia) }}" method="post">
                 @csrf
@@ -38,6 +57,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $noticias->links() }}
 @stop
 
 @section('css')

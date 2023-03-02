@@ -47,6 +47,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $programacions->links() }}
 @stop
 
 @section('css')

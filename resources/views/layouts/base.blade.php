@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @vite('resources/css/app.css')
 </head>
 
 <body>

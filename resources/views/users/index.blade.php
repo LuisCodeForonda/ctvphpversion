@@ -3,32 +3,29 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Miniaturas</h1>
+    <h1>Usuario</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido al apartado de miniaturas</p>
-    <a href="{{ route('miniaturas.create') }}">Nuevo</a>
+    <p>Bienvenido al apartado de usuario</p>
+    <a href="{{ route('users.create') }}">Nuevo</a>
     <p>{{ session('status') }}</p>
-
     <table>
         <thead>
             <tr>
-                <th>Foto</th>
                 <th>Nombre</th>
+                <th>Email</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($miniaturas as $miniatura)
+            @foreach ($users as $user)
                 <tr>
-                    <td>
-                    <img src="{{ asset('storage').'/'.$miniatura->foto }}" alt="" width="100px" height="100px">
-                    </td>
-                    <td>{{ $miniatura->nombre }}</td>
-                    <td><a href="{{ route('miniaturas.edit', $miniatura)}}">Editar</a> | 
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td><a href="">Editar</a> | 
                     
-                    <form action="{{ route('miniaturas.destroy', $miniatura) }}" method="post">
+                    <form action="{{ route('users.destroy', $user) }}" method="post">
                         @csrf
                         @method('delete')
                         <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
@@ -38,8 +35,6 @@
             @endforeach
         </tbody>
     </table>
-    {{ $miniaturas->links() }}
-
 @stop
 
 @section('css')

@@ -17,7 +17,7 @@ class MiniaturaController extends Controller
     public function index()
     {
         //
-        $miniaturas = Miniatura::get();
+        $miniaturas = Miniatura::paginate(5);
         return view('miniaturas.index', compact('miniaturas'));
     }
 
