@@ -59,9 +59,11 @@ Route::prefix('/admin')->group(function(){
     Route::resource('banners', BannerController::class)->middleware('auth');
     Route::resource('miniaturas', MiniaturaController::class)->middleware('auth');
 
-    Route::get('users', [UserController::class, 'index'])->middleware('auth')->name('users.index');
-    Route::get('users/create', [UserController::class, 'create'])->middleware('auth')->name('users.create');
+    Route::get('users', [UserController::class, 'index'])->middleware(['auth', 'can:users.index'])->name('users.index');
+    Route::get('users/create', [UserController::class, 'create'])->middleware(['auth', 'can:users.create'])->name('users.create');
     Route::post('users', [UserController::class, 'store'])->middleware('auth')->name('users.store');
-    Route::delete('users/{user}', [UserController::class, 'destroy'])->middleware('auth')->name('users.destroy');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])->middleware(['auth', 'can:users.edit'])->name('users.edit');
+    Route::patch('users/{user}', [UserController::class, 'update'])->middleware('auth')->name('users.update');
+    Route::delete('users/{user}', [UserController::class, 'destroy'])->middleware(['auth', 'can:users.destroy'])->name('users.destroy');
     
 });

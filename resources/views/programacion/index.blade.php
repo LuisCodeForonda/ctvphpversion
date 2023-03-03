@@ -8,46 +8,57 @@
 
 @section('content')
     <p>Bienvenido al apartado de programación</p>
-    <a href="{{ route('programacion.create') }}">Nuevo</a>
-    <p>{{ session('status') }}</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Hora</th>
-                <th>Dia</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($programacions as $programacion)
-            <tr>
-                <td>{{ $programacion->nombre }}</td>
-                <td>{{ $programacion->hora }}</td>
-                <td>
-                    @if ($programacion->dia == 0)
-                    Lunes a Viernes
-                    @endif
-                    @if ($programacion->dia == 1)
-                    Sabados
-                    @endif
-                    @if ($programacion->dia == 2)
-                    Domingos
-                    @endif
-                </td>
-                <td style="display: flex">
-                    <a href="{{ route('programacion.edit', $programacion) }}">Editar</a>| 
-                    <form action="{{ route('programacion.destroy', $programacion) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    {{ $programacions->links() }}
+
+    @if (session('status'))
+        <div class="alert alert-success"><strong>{{ session('status') }}</strong></div>
+    @endif
+    <a href="{{ route('programacion.create') }}" class="btn btn-primary">Nuevo</a>
+    <div class="card">
+        <div class="card-body">
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Hora</th>
+                        <th>Dia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($programacions as $programacion)
+                        <tr>
+                            <td>{{ $programacion->nombre }}</td>
+                            <td>{{ $programacion->hora }}</td>
+                            <td>
+                                @if ($programacion->dia == 0)
+                                    Lunes a Viernes
+                                @endif
+                                @if ($programacion->dia == 1)
+                                    Sabados
+                                @endif
+                                @if ($programacion->dia == 2)
+                                    Domingos
+                                @endif
+                            </td>
+                            <td width="10" class="d-flex ">
+                                <a href="{{ route('programacion.edit', $programacion) }}" class="btn btn-primary mr-1">Editar</a>
+                                <form action="{{ route('programacion.destroy', $programacion) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar" class="btn btn-danger">
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            {{ $programacions->links() }}
+        </div>
+    </div>
+
 @stop
 
 @section('css')
@@ -55,5 +66,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop

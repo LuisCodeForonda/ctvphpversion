@@ -301,38 +301,39 @@ return [
         [
             'text' => 'usuarios',
             'url'  => 'admin/users',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-solid fa-users',
+            'can' => 'users.index'
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        ['header' => 'plataforma'],
+        ['header' => 'PLATAFORMA'],
         [
             'text' => 'programacion',
             'url'  => 'admin/programacion',
             'icon' => 'fas fa-solid fa-list',
+            'can' => 'programacion.index'
         ],
         [
             'text' => 'programas',
             'url'  => 'admin/programas',
             'icon' => 'fas fa-solid fa-bomb',
+            'can' => 'programas.index'
         ],
         [
             'text' => 'noticias',
             'url'  => 'admin/noticias',
             'icon' => 'fas fa-solid fa-newspaper',
+            'can' => 'noticias.index'
         ],
         [
             'text' => 'banners',
             'url'  => 'admin/banners',
             'icon' => 'fas fa-solid fa-image',
+            'can' => 'banners.index'
         ],
         [
             'text' => 'miniaturas',
             'url'  => 'admin/miniaturas',
             'icon' => 'fas fa-solid fa-camera-retro',
+            'can' => 'miniaturas.index'
         ],
         /*
         [
