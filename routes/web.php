@@ -3,12 +3,15 @@
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\MiniaturaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ProgramacionController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,10 @@ Route::get('/programacion', [HomeController::class, 'programacion'])->name('prog
 Route::get('/programas', [HomeController::class, 'programas'])->name('programas');
 Route::get('/contactos', [HomeController::class, 'contactos'])->name('contactos');
 
+//envio de correos
+Route::post('/contactos', [MessagesController::class, 'store'])->name('contactos');
+
+//rutas del login
 Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

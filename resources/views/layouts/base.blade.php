@@ -9,7 +9,7 @@
     <!-- <script src="https://cdn.tailwindcss.com"></script>  -->
     <script src="{{ asset('js/all.min.js') }}"></script>
 
-    <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}"> 
+    {{-- <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">  --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @vite('resources/css/app.css')
 </head>

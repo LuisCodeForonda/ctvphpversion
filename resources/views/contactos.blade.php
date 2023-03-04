@@ -6,21 +6,44 @@
 <div class="p-4">
     <h2 class="text-2xl font-bold">Contactos</h2>
 
-    <form action="" class="p-0 md:p-6 text-gray-900">
+    @if (session('status'))
+        <script>
+            alert('{{ session('status') }}')
+        </script>
+    @endif
+    <form action="{{ route('contactos') }}" class="p-0 md:p-6 text-gray-900" method="post">
+        @csrf
+
         <div class="flex flex-col">
-            <label for="" class="font-medium mt-4">Nombre Completo</label>
+            <label for="name" class="font-medium mt-4">Nombre Completo</label>
             <input type="text" class="p-2 border-b-2 border-gray-300 outline-none focus:border-blue-500"
-                name="" id="" placeholder="Nombre completo:">
-            <label for="" class="font-medium mt-4">Email</label>
+                name="name" id="" value="{{ old('name') }}" placeholder="Nombre completo:">
+            @error('name')
+                <small class="text-red-500">* {{ $message }}</small>
+            @enderror
+
+            <label for="email" class="font-medium mt-4">Email</label>
             <input type="email"
-                class="p-2 border-b-2 border-gray-300 outline-none focus:border-blue-500" name="" id=""
-                placeholder="Email:">
-            <label for="" class="font-medium mt-4">Asunto</label>
+                class="p-2 border-b-2 border-gray-300 outline-none focus:border-blue-500" name="email" id=""
+                value="{{ old('email') }}" placeholder="Email:">
+            @error('email')
+                <small class="text-red-500">* {{ $message }}</small>
+            @enderror
+            
+            <label for="subject" class="font-medium mt-4">Asunto</label>
             <input type="text" class="p-2 border-b-2 border-gray-300 outline-none focus:border-blue-500"
-                name="" id="" placeholder="Asunto:">
-            <label for="" class="font-medium mt-4">Mensaje</label>
-            <textarea name="" id="" class="p-2 outline-blue-500" cols="30" rows="10"
-                placeholder="Mensaje:"></textarea>
+                name="subject" id="" value="{{ old('subject') }}" placeholder="Asunto:">
+            @error('subject')
+                <small class="text-red-500">* {{ $message }}</small>
+            @enderror
+
+            <label for="content" class="font-medium mt-4">Mensaje</label>
+            <textarea name="content" id="" class="p-2 outline-blue-500" cols="30" rows="10"
+                value="{{ old('content') }}" placeholder="Mensaje:"></textarea>
+            @error('content')
+                <small class="text-red-500">* {{ $message }}</small>
+            @enderror
+
             <input type="submit" value="Enviar"
                 class="inline-block p-2 mt-6 text-white text-2xl font-bold bg-blue-600 rounded-3xl w-48 mx-auto cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-300">
         </div>
