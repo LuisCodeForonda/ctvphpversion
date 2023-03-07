@@ -18,14 +18,14 @@
             <form action="/login" method="POST" class="from-color w-96 p-4 font-semibold rounded-xl">
                 @csrf
                 <label for="email">Correo</label>
-                <input type="email" name="email" id="" class="w-full p-2">
+                <input type="email" name="email" id="" class="w-full p-2 text-gray-900">
                 <br>
                 @error('email')
-                    {{ $message }}
+                    <small>*{{ $message }}</small>
                 @enderror
                 <br>
                 <label for="password">Contraceña </label>
-                <input type="password" name="password" id="" class="w-full p-2 mb-2">
+                <input type="password" name="password" id="" class="w-full p-2 mb-2 text-gray-900">
                 <br>
     
     

@@ -8,14 +8,14 @@
 
 @section('content')
     <p>Editar una noticia</p>
-    <a href="{{ route('noticias.index') }}">Regresar</a>
+    <a href="{{ route('noticias.index') }}" class="btn btn-secondary">Regresar</a>
     <p>{{ session('status') }}</p>
     
     <form action="{{ route('noticias.update', $noticia) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('patch')
         @include('noticias.form')
-        <input type="submit" value="Actualizar">
+        <input type="submit" value="Actualizar" class="btn btn-primary">
     </form>
 @stop
 

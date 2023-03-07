@@ -8,10 +8,10 @@
 
 @section('content')
     <p>Bienvenido al apartado de banners</p>
-    <a href="{{ route('banners.create') }}">Nuevo</a>
+    <a href="{{ route('banners.create') }}" class="btn btn-primary">Nuevo</a>
     <p>{{ session('status') }}</p>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Logo</th>
@@ -28,12 +28,12 @@
                     </td>
                     <td>{{ $banner->nombre }}</td>
                     <td>{{ $banner->hora }}</td>
-                    <td><a href="{{ route('banners.edit', $banner)}}">Editar</a> | 
+                    <td class="d-flex"><a href="{{ route('banners.edit', $banner)}}" class="btn btn-primary mr-1">Editar</a>
                     
                     <form action="{{ route('banners.destroy', $banner) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar">
+                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar" class="btn btn-danger"> 
                     </form></td>
                     
                 </tr>

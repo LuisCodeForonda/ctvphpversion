@@ -26,7 +26,7 @@ class ProgramacionRequest extends FormRequest
         return [
             'nombre' => ['required'],
             'hora' => ['required'],
-            'dia' => ['required', 'int'],
+            'dia' => ['required'],
         ];
     }
 }

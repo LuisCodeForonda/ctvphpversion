@@ -8,13 +8,17 @@
 
 @section('content')
     <p>Bienvenido al apartado de noticias</p>
-    <a href="{{ route('noticias.index') }}">Regresar</a>
+    <a href="{{ route('noticias.index') }}" class="btn btn-secondary">Regresar</a>
     <p>{{ session('status') }}</p>
     
     <form action="{{ route('noticias.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        @include('noticias.form')
-        <input type="submit" value="Guardar">
+        <div class="card">
+            <div class="card-body">
+                @include('noticias.form')
+            </div>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-primary">
     </form>
 @stop
 

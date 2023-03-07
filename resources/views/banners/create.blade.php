@@ -8,12 +8,12 @@
 
 @section('content')
     <p>Crear un nuevo registro</p>
-    <a href="{{ route('banners.index') }}">Regresar</a>
+    <a href="{{ route('banners.index') }}" class="btn btn-secondary">Regresar</a>
 
     <form action="{{ route('banners.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         @include('banners.form')
-        <input type="submit" value="Guardar">
+        <input type="submit" value="Guardar" class="btn btn-primary">
     </form>
 @stop
 
@@ -22,5 +22,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop

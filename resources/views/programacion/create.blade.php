@@ -8,12 +8,12 @@
 
 @section('content')
     <p>Crear un nuevo registro</p>
-    <a href="{{ route('programacion.index') }}">Regresar</a>
+    <a href="{{ route('programacion.index') }}" class="btn btn-secondary">Regresar</a>
 
     <form action="{{ route('programacion.store') }}" method="post">
         @csrf
         @include('programacion.form')
-        <input type="submit" value="Guardar">
+        <input type="submit" value="Guardar" class="btn btn-primary">
     </form>
 @stop
 
