@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link rel="stylesheet" href="css/tailwind.css"> 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                 <br>
     
     
-                <input type="checkbox" name="recuerdame" id="" class="my-4">
+                <input type="checkbox" name="recuerdame" id="recuerdame" class="my-4">
                 <label for="recuerdame">Recuerdame</label>
                 <br>
                 <input type="submit" value="Login" class="w-full rounded bg-blue-500 text-white p-2 cursor-pointer text-xl hover:bg-blue-600">

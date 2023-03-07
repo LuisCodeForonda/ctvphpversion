@@ -90,7 +90,7 @@ class NoticiaController extends Controller
         $request->validate([
             'titulo' => ['required'],
             'cuerpo' => ['required'],
-            'fecha_hora' => ['required'],
+            'fecha' => ['required'],
         ]);
 
         $datos_noticia = request()->except(['_token', '_method']);

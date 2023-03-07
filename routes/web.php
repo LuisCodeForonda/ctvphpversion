@@ -50,7 +50,7 @@ Route::get('/admin', function(){
 })->middleware('auth')->name('admin');
 
 Route::prefix('/admin')->group(function(){
-    Route::get('/programacion', [ProgramacionController::class, 'index'])->middleware('auth')->name('programacion.index');
+    Route::get('/programacion', [ProgramacionController::class, 'index'])->middleware(['auth', 'can:programacion.index'])->name('programacion.index');
     Route::get('/programacion/create', [ProgramacionController::class, 'create'])->middleware('auth')->name('programacion.create');
     Route::post('/programacion', [ProgramacionController::class, 'store'])->middleware('auth')->name('programacion.store');
     Route::get('/programacion/{programacion}/edit', [ProgramacionController::class, 'edit'])->middleware('auth')->name('programacion.edit');
@@ -61,10 +61,10 @@ Route::prefix('/admin')->group(function(){
     Route::get('/programas', [ProgramaController::class, 'index'])->name('programas.index');
     Route::get('/programas/create', [ProgramaController::class, 'create'])->name('programas.create');
     Route::post('/programas', [ProgramaController::class, 'store'])->name('programas.store');*/
-    Route::resource('programas', ProgramaController::class)->middleware('auth');
-    Route::resource('noticias', NoticiaController::class)->middleware('auth');
-    Route::resource('banners', BannerController::class)->middleware('auth');
-    Route::resource('miniaturas', MiniaturaController::class)->middleware('auth');
+    Route::resource('programas', ProgramaController::class)->middleware(['auth', 'can:programas.index']);
+    Route::resource('noticias', NoticiaController::class)->middleware(['auth', 'can:noticias.index']);
+    Route::resource('banners', BannerController::class)->middleware(['auth', 'can:banners.index']);
+    Route::resource('miniaturas', MiniaturaController::class)->middleware(['auth', 'can:miniaturas.index']);
 
     Route::get('users', [UserController::class, 'index'])->middleware(['auth', 'can:users.index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->middleware(['auth', 'can:users.create'])->name('users.create');

@@ -8,7 +8,7 @@
 
 @section('content')
     <p>Editar el usuario</p>
-    <a href="{{ route('users.index') }}" class="">Regresar</a>
+    <a href="{{ route('users.index') }}" class="btn btn-secondary">Regresar</a>
     @if (session('info'))
         <div class="alert alert-success"><strong>{{ session('info') }}</strong></div>
     @endif

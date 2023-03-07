@@ -33,10 +33,10 @@
 <br>
 
 <div class="mb-3">
-    <label for="fecha_hora" class="form-label">Fecha Hora</label>
-    <input type="datetime-local" name="fecha_hora" class="form-control" id="fecha_hora"
-        value="{{ old('fecha_hora', $noticia->fecha_hora) }}">
-    @error('fecha_hora')
+    <label for="fecha" class="form-label">Fecha Hora</label>
+    <input type="date" name="fecha" class="form-control" id="fecha"
+        value="{{ old('fecha', $noticia->fecha) }}">
+    @error('fecha')
         <small style="color: red;">{{ $message }}</small>
     @enderror
 </div>

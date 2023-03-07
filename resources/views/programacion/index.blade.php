@@ -12,6 +12,7 @@
     @if (session('status'))
         <div class="alert alert-success"><strong>{{ session('status') }}</strong></div>
     @endif
+
     <a href="{{ route('programacion.create') }}" class="btn btn-primary">Nuevo</a>
 
     <table class="table table-striped">
@@ -52,11 +53,9 @@
             @endforeach
         </tbody>
     </table>
-
-    <div class="card-footer">
+    <div>
         {{ $programacions->links() }}
     </div>
-
 @stop
 
 @section('css')

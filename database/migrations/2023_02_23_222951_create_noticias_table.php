@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('foto');
             $table->longText('cuerpo');
-            $table->dateTime('fecha_hora');
+            $table->date('fecha');
             $table->string('categoria');
             $table->timestamps();
         });

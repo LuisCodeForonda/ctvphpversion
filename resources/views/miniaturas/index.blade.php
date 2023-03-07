@@ -9,7 +9,9 @@
 @section('content')
     <p>Bienvenido al apartado de miniaturas</p>
     <a href="{{ route('miniaturas.create') }}" class="btn btn-primary">Nuevo</a>
-    <p>{{ session('status') }}</p>
+    @if (session('status'))
+        <div class="alert alert-success"><strong>{{ session('status') }}</strong></div>
+    @endif
 
     <table class="table table-striped">
         <thead>
@@ -23,23 +25,27 @@
             @foreach ($miniaturas as $miniatura)
                 <tr>
                     <td>
-                    <img src="{{ asset('storage').'/'.$miniatura->foto }}" alt="" width="100px" height="100px">
+                        <img src="{{ asset('storage') . '/' . $miniatura->foto }}" alt="" width="100px" height="100px">
                     </td>
                     <td>{{ $miniatura->nombre }}</td>
-                    <td class="d-flex"><a href="{{ route('miniaturas.edit', $miniatura)}}" class="btn btn-primary mr-1">Editar</a>
-                    
-                    <form action="{{ route('miniaturas.destroy', $miniatura) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar" class="btn btn-danger">
-                    </form></td>
-                    
+                    <td class="d-flex"><a href="{{ route('miniaturas.edit', $miniatura) }}"
+                            class="btn btn-primary mr-1">Editar</a>
+
+                        <form action="{{ route('miniaturas.destroy', $miniatura) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" onclick="return confirm('¿Quieres Eliminar?')" value="Eliminar"
+                                class="btn btn-danger">
+                        </form>
+                    </td>
+
                 </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $miniaturas->links() }}
-
+    <div>
+        {{ $miniaturas->links() }}
+    </div>
 @stop
 
 @section('css')
@@ -47,5 +53,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop

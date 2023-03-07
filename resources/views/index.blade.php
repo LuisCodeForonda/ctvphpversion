@@ -131,7 +131,7 @@
                     @if ($item->categoria == 6)
                         Entrenamiento
                     @endif
-                </span> | {{ substr($item->fecha_hora, 0, 10)  }}</p>
+                </span> | {{ $item->fecha }}</p>
                 <a href="{{ route('detallenoticia', $item->slug) }}" class="font-bold text-2xl">
                     {{ $item->titulo }}
                 </a>
@@ -139,5 +139,13 @@
         </div>
         @endforeach
     </div>
-    
+    <script type="text/javascript">
+        // var element = document.getElementById('mySlides');
+        // Hammer(element).on("panleft", function(event){
+        //     alert("deslizo a la izquierda");
+        // });
+        // Hammer(element).on("panright", function(event){
+        //     alert("deslizo a la derecha");
+        // });
+    </script>
 @endsection

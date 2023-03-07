@@ -27,7 +27,7 @@ class NoticiaRequest extends FormRequest
             'titulo' => ['required'],
             'foto' => ['required'],
             'cuerpo' => ['required'],
-            'fecha_hora' => ['required'],
+            'fecha' => ['required'],
         ];
     }
 }
