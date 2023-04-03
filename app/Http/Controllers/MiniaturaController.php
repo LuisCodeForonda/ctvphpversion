@@ -42,9 +42,12 @@ class MiniaturaController extends Controller
     {
         //
         $datos_miniatura = request()->except(['_token']);
-        
-        if($request->hasFile('foto')){
+
+        if ($request->hasFile('foto')) {
             $datos_miniatura['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //linea agregada para produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_miniatura['foto']);
         }
 
         Miniatura::insert($datos_miniatura);
@@ -88,16 +91,25 @@ class MiniaturaController extends Controller
         $request->validate([
             'nombre' => ['required'],
         ]);
-        
-        $datos_miniatura = request()->except(['_token', '_method']);
-        
-        if($request->hasFile('foto')){
 
-            Storage::delete('public/'.$miniatura->foto);
+        $datos_miniatura = request()->except(['_token', '_method']);
+
+        if ($request->hasFile('foto')) {
+
+            Storage::delete('public/' . $miniatura->foto);
+            //metodo para eliminar de public_html en produccion
+            // $filename = '/home2/catolicatv/public_html/storage/' . $miniatura->foto;
+            // if (file_exists($filename)) {
+            //     unlink($filename);
+            //     //echo "La imagen se elimin贸 correctamente.";
+            // }
 
             $datos_miniatura['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //codigo para la version de produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_miniatura['foto']);
         }
-        
+
         Miniatura::where('id', '=', $miniatura->id)->update($datos_miniatura);
         return redirect()->route('miniaturas.index')->with('status', 'Registro actualizado exitosamente');
     }
@@ -111,9 +123,19 @@ class MiniaturaController extends Controller
     public function destroy(Miniatura $miniatura)
     {
         //
-        if(Storage::delete('public/'.$miniatura->foto)){
+        if (Storage::delete('public/' . $miniatura->foto)) {
             $miniatura->delete();
         }
+
+        //metodo para eliminar de public_html
+        // $filename = '/home2/catolicatv/public_html/storage/'.$miniatura->foto;
+        // if (file_exists($filename)) {
+        //     unlink($filename);
+        //     //echo "La imagen se elimin贸 correctamente.";
+        // } else {
+        //     //echo "La imagen no existe en la ruta especificada .";
+        // }
+
         return redirect()->route('miniaturas.index')->with('status', 'Registro eliminado exitosamente');
     }
 }

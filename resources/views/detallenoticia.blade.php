@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+@section('subtitulo', '- noticias')
 
 @section('content')
     <div class="text-gray-900">
@@ -21,44 +22,4 @@
         </ul>
     </div>
 
-    <style>
-        .noticiaestilos>p {
-            line-height: 1.5rem;
-            font-size: 1.125rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .noticiaestilos>h1 {
-            font-size: 1.875rem;
-            /* 30px */
-            line-height: 2.25rem;
-            /* 36px */
-        }
-
-        .noticiaestilos>h2 {
-            font-size: 1.5rem;
-            /* 24px */
-            line-height: 2rem;
-            /* 32px */
-        }
-
-        .noticiaestilos>h3 {
-            font-size: 1.25rem;
-            /* 20px */
-            line-height: 1.75rem;
-            /* 28px */
-        }
-
-        .noticiaestilos>p>a {
-            text-decoration-line: underline;
-            text-decoration-color: rgb(37 99 235);
-            color: rgb(37 99 235);
-        }
-
-        .noticiaestilos>figure>table>tbody>tr>td {
-            border-width: 1px;
-            padding: 5px;
-        }
-    </style>
 @endsection

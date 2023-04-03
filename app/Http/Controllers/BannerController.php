@@ -47,6 +47,9 @@ class BannerController extends Controller
             $datos_banner['logo'] = $request->file('logo')->store('uploads', 'public');
         }
 
+        //codigo para produccion 
+        //$request->logo->move(base_path('public_html/storage/uploads'), $datos_banner['logo']);
+
         Banner::insert($datos_banner);
 
         return redirect()->route('banners.index')->with('status', 'Registro agregado exitosamente');
@@ -95,8 +98,17 @@ class BannerController extends Controller
         if($request->hasFile('logo')){
 
             Storage::delete('public/'.$banner->logo);
+            //metodo para eliminar de public_html en produccion
+            // $filename = '/home2/catolicatv/public_html/storage/'.$banner->logo;
+            // if (file_exists($filename)) {
+            //     unlink($filename);
+            //     //echo "La imagen se eliminó correctamente.";
+            // }
 
             $datos_banner['logo'] = $request->file('logo')->store('uploads', 'public');
+
+            //codigo para la version de produccion
+            //$request->logo->move(base_path('public_html/storage/uploads'), $datos_banner['logo']);
         }
         
         Banner::where('id', '=', $banner->id)->update($datos_banner);
@@ -115,6 +127,16 @@ class BannerController extends Controller
         if(Storage::delete('public/'.$banner->logo)){
             $banner->delete();
         }
+
+        //metodo para eliminar de public_html
+        // $filename = '/home2/catolicatv/public_html/storage/'.$banner->logo;
+        // if (file_exists($filename)) {
+        //     unlink($filename);
+        //     //echo "La imagen se eliminó correctamente.";
+        // } else {
+        //     //echo "La imagen no existe en la ruta especificada .";
+        // }
+
         return redirect()->route('banners.index')->with('status', 'Registro eliminado exitosamente');
     }
 }

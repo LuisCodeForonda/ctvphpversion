@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="css/tailwind.css"> 
+    <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}"> 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     {{-- @vite('resources/css/app.css') --}}
 </head>

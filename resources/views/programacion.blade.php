@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+@section('subtitulo', '- programacion')
 
 @section('content')
 
@@ -33,6 +34,7 @@
           </li>
           @endforeach
   
+          <!--
           <li class="flex flex-row ">
             <strong class="inline-block border-t-4 border-red-600 p-4">05:55</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">HORA SANTA</p>
@@ -118,7 +120,7 @@
             <strong class="inline-block border-t-4 border-red-600 p-4">00:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CIERRE DE EMISIÓN</p>
           </li>
-      
+          -->
   
         </ul>
       </div>
@@ -132,6 +134,8 @@
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
           </li>
           @endforeach
+
+          <!--
           <li class="flex flex-row">
             <strong class="inline-block border-t-4 border-red-600 p-4">06:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CAMINO AL CIELO</p>
@@ -231,109 +235,110 @@
           <li class="flex flex-row">
             <strong class="inline-block border-t-4 border-red-600 p-4">00:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CIERRE DE EMISIÓN</p>
-          </li>
-    
+          </li>-->
+          
         </ul>
       </div>
       <div id="tab-content" class="block p-6 hidden text-gray-800">
         <h3 class="py-4 font-medium">Domingos</h3>
-        <ul>
-          @foreach ($domingos as $item)
+        <ul class="list__programacion">
+           @foreach ($domingos as $item)
           <li class="flex flex-row ">
             <strong class="inline-block border-t-4 border-red-600 p-4">{{ substr($item->hora, 0, 5) }}</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
           </li>
-          @endforeach
-       
+          @endforeach 
+          {{--
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">06:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">06:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CAMINO AL CIELO</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">07:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">07:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">SANTA MISA</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">08:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">08:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">SUPER LIBRO</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">08:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">08:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LAS AVENTURAS DE LOS OSOS GUMMI</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">09:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">09:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">AVENTUREROS EN EL AIRE</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">09:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">09:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">TRANSFORMES</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">10:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">10:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">TRANSFORMES</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">10:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">10:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">SANTA MISA</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">11:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">11:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LA PEQUEÑA LU LU</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">12:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">12:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">BUTACA FAMILIAR</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">13:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">13:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">SABRINA</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">14:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">14:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">DINOSAURIOS</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">15:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">15:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CICLO DE CINE AVENTURA</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">16:30</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">16:30</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">ALF</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">17:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">17:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LA BELLA Y LA BESTIA</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">18:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">18:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">EL DIARIO DEL DESTINO</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">19:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">19:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">WALKER RANGER TEXAS</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">20:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">20:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LOS MAGNIFICOS</p>
+
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">21:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">21:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">MISIÓN IMPOSIBLE</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">22:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">22:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LOBO DEL AIRE</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">23:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">23:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">LOS INVASORES</p>
           </li>
           <li class="flex flex-row">
-            <strong class="inline-block border-t-4 border-red-600 p-4">00:00</strong>
+            <strong class="inline-block border-t-4 border-red-600 p-4 hour">00:00</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">CIERRE DE EMISIÓN</p>
           </li>
-      
+          --}}
         </ul>
       </div>
     </div>

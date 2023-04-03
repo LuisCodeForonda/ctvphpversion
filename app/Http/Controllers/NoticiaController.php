@@ -31,7 +31,7 @@ class NoticiaController extends Controller
     public function create()
     {
         //
-        return view('noticias.create', ['noticia'=> new Noticia()]);
+        return view('noticias.create', ['noticia' => new Noticia()]);
     }
 
     /**
@@ -45,9 +45,12 @@ class NoticiaController extends Controller
         //
         $datos_noticia =  request()->except((['_token']));
         $datos_noticia['slug'] = Str::slug($datos_noticia['titulo']);
-        
-        if($request->hasFile('foto')){
+
+        if ($request->hasFile('foto')) {
             $datos_noticia['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //linea agregada para produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_noticia['foto']);
         }
 
         Noticia::insert($datos_noticia);
@@ -96,11 +99,21 @@ class NoticiaController extends Controller
         $datos_noticia = request()->except(['_token', '_method']);
         $datos_noticia['slug'] = Str::slug($datos_noticia['titulo']);
 
-        if($request->hasFile('foto')){
+        if ($request->hasFile('foto')) {
 
-            Storage::delete('public/'.$noticia->foto);
+            Storage::delete('public/' . $noticia->foto);
+
+            //metodo para eliminar de public_html en produccion
+            // $filename = '/home2/catolicatv/public_html/storage/'.$noticia->foto;
+            // if (file_exists($filename)) {
+            //     unlink($filename);
+            //     //echo "La imagen se elimin贸 correctamente.";
+            // }
 
             $datos_noticia['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //codigo para la version de produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_noticia['foto']);
         }
 
         Noticia::where('id', '=', $noticia->id)->update($datos_noticia);
@@ -116,9 +129,19 @@ class NoticiaController extends Controller
     public function destroy(Noticia $noticia)
     {
         //
-        if(Storage::delete('public/'.$noticia->foto)){
+        if (Storage::delete('public/' . $noticia->foto)) {
             $noticia->delete();
         }
+
+        //metodo para eliminar de public_html
+        // $filename = '/home2/catolicatv/public_html/storage/' . $noticia->foto;
+        // if (file_exists($filename)) {
+        //     unlink($filename);
+        //     //echo "La imagen se elimin贸 correctamente.";
+        // } else {
+        //     //echo "La imagen no existe en la ruta especificada .";
+        // }
+
         return redirect()->route('noticias.index')->with('status', 'Registro eliminado exitosamente');
     }
 }

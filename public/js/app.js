@@ -22,18 +22,18 @@ boton.addEventListener('click', () => {
 });
 
 //codigo de las opciones del menu
-menuitems.forEach((menuitem, index) =>{
-    menuitem.addEventListener("click", () =>{
+menuitems.forEach((menuitem, index) => {
+    menuitem.addEventListener("click", () => {
         console.log("esta aqui")
-       menuitems.forEach((menuitem) => menuitem.classList.remove("border-b-2"));
-       menuitem.classList.add("border-b-2");
-      
+        menuitems.forEach((menuitem) => menuitem.classList.remove("border-b-2"));
+        menuitem.classList.add("border-b-2");
+
     });
 });
 
 //codigo del slide
 if (!(slideprev === null)) {
-    
+
     console.log("esta el slide aqui");
     let slideIndex = 1;
     let contadorSlide = 0;
@@ -79,7 +79,7 @@ if (!(slideprev === null)) {
     setInterval(contAutoSlide, 1000);
 
     function contAutoSlide() {
-        if (contadorSlide == 4) {
+        if (contadorSlide == 6) {
             contadorSlide = 0;
             autoSlide();
         }
@@ -88,17 +88,17 @@ if (!(slideprev === null)) {
 }
 
 //codigo de los tabs (pestañas)
-if(!(tabs === null)){
-    tabs.forEach((tab, index) =>{
-        tab.addEventListener("click", () =>{
+if (!(tabs === null)) {
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
             //remover las clases activas
-             
+
             tabs.forEach((tab) => tab.classList.remove("text-gray-200"));
             tabs.forEach((tab) => tab.classList.remove("bg-red-700"));
-            
+
             tab.classList.add("text-gray-200");
             tab.classList.add("bg-red-700");
-    
+
             //mostrar los contenedores
             contents.forEach((content) => content.classList.add("hidden"))
             contents[index].classList.remove("hidden");
@@ -107,6 +107,48 @@ if(!(tabs === null)){
     });
 }
 
+
+/** funcion para mostrar el programa actual */
+//setInterval(actualizarEnVivo, 5000);
+
+
+/*
+function actualizarEnVivo() {
+    let horaActual = new Date();
+    let horaData = Number(horaActual.getHours()) + Number("0." + horaActual.getMinutes());
+
+    let listaProgra = document.querySelectorAll(".hour");
+    let listaData = []
+
+    console.log(listaProgra);
+    for (let index = 0; index < listaProgra.length; index++) {
+        let element = Number(listaProgra[index].innerHTML.slice(0, 2)) + Number("0." + listaProgra[index].innerHTML.slice(3, 4));
+        listaData.push(element);
+    }
+
+
+    for (let index = 0; index < listaData.length - 1; index++) {
+        if (listaData[index] < horaData && horaData < listaData[index + 1]) {
+            console.log("si se cumplio");
+            console.log(horaData + "esta entre" + listaData[index] + " y " + listaData[index + 1]);
+            const nodo = document.createElement("div");
+            nodo.classList.add("inline-block");
+            nodo.classList.add("border-t-4");
+            nodo.classList.add("border-red-300/50");
+            nodo.classList.add("w-36");
+            nodo.classList.add("p-4");
+            nodo.classList.add("vivo");
+            nodo.innerHTML = "en vivo";
+            //<div class="inline-block border-t-4 border-red-300/50 w-36 p-4 vivo">en vivo</div>
+            listaProgra[index].parentNode.appendChild(nodo);
+        } else {
+
+        }
+    }
+}
+
+
+console.log(listaData);*/
 
 /*
 3 adaptadores display port a hdmi hembra

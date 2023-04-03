@@ -25,7 +25,7 @@ class NoticiaRequest extends FormRequest
     {
         return [
             'titulo' => ['required'],
-            'foto' => ['required'],
+            'foto' => ['required', 'mimes:jpeg,png,jpg'],
             'cuerpo' => ['required'],
             'fecha' => ['required'],
         ];

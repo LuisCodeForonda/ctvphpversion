@@ -1,5 +1,6 @@
 @extends('layouts.base')
 
+@section('subtitulo', '- quienes somos')
 
 @section('content')
     <div class="p-4 text-lg">

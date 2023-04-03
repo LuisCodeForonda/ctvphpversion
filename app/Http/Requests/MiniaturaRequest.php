@@ -26,7 +26,7 @@ class MiniaturaRequest extends FormRequest
         return [
             //
             'nombre' => ['required'],
-            'foto' => ['required'],
+            'foto' => ['required', 'mimes:jpeg,png,jpg'],
         ];
     }
 }

@@ -26,7 +26,7 @@ class ProgramaRequest extends FormRequest
     {
         return [
             'nombre' => ['required'],
-            'foto' => ['required'],
+            'foto' => ['required', 'mimes:jpeg,png,jpg'],
             'hora_inicio' => ['required'],
             'hora_fin' => ['required'],
             'descripcion' => ['required'],

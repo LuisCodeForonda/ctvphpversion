@@ -29,7 +29,7 @@ class ProgramaController extends Controller
     public function create()
     {
         //
-        return view('programas.create', ['programa'=> new Programa()]);
+        return view('programas.create', ['programa' => new Programa()]);
     }
 
     /**
@@ -43,8 +43,11 @@ class ProgramaController extends Controller
         //
         $datos_programa = request()->except(['_token']);
 
-        if($request->hasFile('foto')){
+        if ($request->hasFile('foto')) {
             $datos_programa['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //linea agregada para produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_programa['foto']);
         }
 
         Programa::insert($datos_programa);
@@ -90,16 +93,26 @@ class ProgramaController extends Controller
             'hora_fin' => ['required'],
             'descripcion' => ['required'],
         ]);
-        
-        $datos_programa = request()->except(['_token', '_method']);
-        
-        if($request->hasFile('foto')){
 
-            Storage::delete('public/'.$programa->foto);
+        $datos_programa = request()->except(['_token', '_method']);
+
+        if ($request->hasFile('foto')) {
+
+            Storage::delete('public/' . $programa->foto);
+
+            //metodo para eliminar de public_html en produccion
+            // $filename = '/home2/catolicatv/public_html/storage/'.$programa->foto;
+            // if (file_exists($filename)) {
+            //     unlink($filename);
+            //     //echo "La imagen se elimin贸 correctamente.";
+            // }
 
             $datos_programa['foto'] = $request->file('foto')->store('uploads', 'public');
+
+            //codigo para la version de produccion
+            //$request->foto->move(base_path('public_html/storage/uploads'), $datos_programa['foto']);
         }
-        
+
         Programa::where('id', '=', $programa->id)->update($datos_programa);
         return redirect()->route('programas.index')->with('status', 'Registro actualizado exitosamente');
     }
@@ -113,9 +126,19 @@ class ProgramaController extends Controller
     public function destroy(Programa $programa)
     {
         //
-        if(Storage::delete('public/'.$programa->foto)){
+        if (Storage::delete('public/' . $programa->foto)) {
             $programa->delete();
         }
+
+        //metodo para eliminar de public_html
+        // $filename = '/home2/catolicatv/public_html/storage/' . $programa->foto;
+        // if (file_exists($filename)) {
+        //     unlink($filename);
+        //     //echo "La imagen se elimin贸 correctamente.";
+        // } else {
+        //     //echo "La imagen no existe en la ruta especificada .";
+        // }
+
         return redirect()->route('programas.index')->with('status', 'Registro eliminado exitosamente');
     }
 }

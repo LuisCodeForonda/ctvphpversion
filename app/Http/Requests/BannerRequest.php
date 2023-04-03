@@ -25,7 +25,7 @@ class BannerRequest extends FormRequest
     {
         return [
             'nombre' => ['required'],
-            'logo' => ['required'],
+            'logo' => ['required', 'mimes:jpeg,png,jpg'],
             'hora' => ['required'],
         ];
     }
