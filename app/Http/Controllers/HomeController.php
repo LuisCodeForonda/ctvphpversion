@@ -55,4 +55,9 @@ class HomeController extends Controller
         $miniaturas = Miniatura::all();
         return view('contactos', compact('miniaturas'));
     }
+
+    public function correos(){
+        $miniaturas = Miniatura::all();
+        return view('correos', compact('miniaturas'));
+    }
 }

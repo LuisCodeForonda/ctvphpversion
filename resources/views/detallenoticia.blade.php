@@ -15,7 +15,7 @@
         <h2 class="font-bold text-2xl p-2">Últimas noticias</h2>
         <ul class="p-2">
             @foreach ($titulares as $titular)
-                <li class="text-2xl font-semibold p-2 my-2 border-l-2 border-red-700 hover:text-red-700">
+                <li class="text-xl font-semibold p-2 my-2 border-l-2 border-red-700 hover:text-red-700">
                     <a href="{{ route('detallenoticia', $titular->slug) }}" class="">{{ $titular->titulo }}</a>
                 </li>
             @endforeach

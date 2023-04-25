@@ -14,11 +14,12 @@
     <title>CTV Bolivia @yield('subtitulo')</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=7">
-    {{-- @vite('resources/css/app.css')  --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
-    <header class="relative w-full h-36 header__container">
+    <header class="relative w-full h-40 md:h-36 header__container">
         {{-- <img src="{{ asset('assets/background2.jpg') }}" alt=""
             class=" absolute top-0 left-0 w-full h-full object-cover"> --}}
         <div
@@ -29,6 +30,8 @@
                 <p class=""><i class="fa-solid fa-location-dot pr-2"></i>C. Dias Romero #1370, La Paz - Bolivia
                 </p>
                 <p class=""><i class="fa-solid fa-phone pr-2"></i>222 06 55, 222 06 05</p>
+                <a href="{{ route('correos') }}"><i class="fa-solid fa-envelope pr-2"></i>Correos</a>
+                <p><i class="fa-brands fa-whatsapp text-lime-500 text-xl pr-2"></i>wahtsapp</p>
             </div>
         </div>
     </header>
@@ -61,14 +64,20 @@
                         somos
                     </a>
                 </li>
-                <li><a href="{{ route('programacion') }}"
-                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('programacion') ? 'text-slate-50 font-medium' : '' }}">Programación</a>
+                <li>
+                    <a href="{{ route('programacion') }}"
+                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('programacion') ? 'text-slate-50 font-medium' : '' }}">Programación
+                    </a>
                 </li>
-                <li><a href="{{ route('programas') }}"
-                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('programas') ? 'text-slate-50 font-medium' : '' }}">Programas</a>
+                <li>
+                    <a href="{{ route('programas') }}"
+                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('programas') ? 'text-slate-50 font-medium' : '' }}">Programas
+                    </a>
                 </li>
-                <li><a href="{{ route('contactos') }}"
-                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('contactos') ? 'text-slate-50 font-medium' : '' }}">Contactos</a>
+                <li>
+                    <a href="{{ route('contactos') }}"
+                        class="menu_item text-slate-400 hover:text-slate-50 {{ request()->routeIs('contactos') ? 'text-slate-50 font-medium' : '' }}">Contactos
+                    </a>
                 </li>
             </ul>
 
@@ -93,8 +102,12 @@
 
         <div class="lg:basis-2/6">
             {{-- bajar el height --}}
-            <div class="h-60 bg-gray-200 shadow-xl lg:m-4">
 
+            <div class=" bg-gray-200 shadow-xl lg:m-4">
+                <h2 class="inline-block text-xl bg-red-700 text-white px-4 rounded"><i
+                        class="fa-solid fa-circle-play mr-2"></i>Live</h2>
+                <iframe src="" width="100%" height="360" frameborder="0" scrolling="no" target="_blank"
+                    allowfullscreen="yes"></iframe>
             </div>
 
             <div class="flex flex-col gap-2 m-4 p-4 shadow-xl rounded-xl overflow-hidden">
@@ -111,8 +124,8 @@
     </main>
 
     <footer class="bg-slate-200 text-gray-900">
-        <div class="container max-w-screen-xl mx-auto flex flex-row flex-wrap items-center justify-between p-4">
-            <div class="">
+        <div class="container max-w-screen-xl mx-auto grid grid-cols-2 md:flex md:justify-between md:h-48 p-4 ">
+            <div class="md:w-1/4">
                 <h3 class="font-bold text-xl mb-2">Redes sociales</h3>
                 <a href="https://www.facebook.com/CTVLaPaz" target="_blank" rel="noopener noreferrer"
                     class="block text-xl hover:text-red-700"><i
@@ -127,13 +140,28 @@
                     class="block text-xl hover:text-red-700"><i class="fa-brands fa-tiktok w-6 h-6 mr-2"></i>Tik
                     tok</a>
             </div>
-            <div class="w-40 h-28">
+            <div class="mt-2 md:w-1/4 md:mt-0">
+                <h3 class="font-bold text-xl">Contabilidad</h3>
+                <p class="mb-2"><strong>Correo:</strong> contabilidad@ctvbolivia.com</p>
+
+                <h3 class="font-bold text-xl">Área producción</h3>
+                <p class="mb-2"><strong>Correo:</strong> espinoza@ctvbolivia.com</p>
+
+                <h3 class="font-bold text-xl">Área programación</h3>
+                <p class="mb-2"><strong>Correo:</strong> quintanilla@ctvbolivia.com</p>
+            </div>
+            <div class="mt-2 md:w-1/4 md:mt-0">
+                <h3 class="font-bold text-xl mb-2">Enlaces</h3>
+                <a href="https://titan.hostgator.mx/login/" target="_blank" rel="noopener noreferrer"
+                    class="block hover:text-red-700 underline underline-offset-2 cursor-pointer">mi correo</a>
+            </div>
+            <div class="w-40 h-28 self-center">
                 <img loading="lazy" src="{{ asset('assets/LogoDorado.png') }}" alt=""
                     class="w-full h-full">
             </div>
         </div>
 
-        <p class="text-center font-bold pb-4">
+        <p class="text-center font-bold p-4">
             Copyright © 2023 · Todos los Derechos Reservados · Copacabana Television Srl.
         </p>
     </footer>

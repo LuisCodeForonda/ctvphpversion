@@ -57,4 +57,5 @@ class RolSeeder extends Seeder
         Permission::create(['name' => 'miniaturas.edit'])->syncRoles([$role1, $role6]);
         Permission::create(['name' => 'miniaturas.destroy'])->syncRoles([$role1, $role6]);
     }
+    
 }

@@ -12,8 +12,6 @@ const tabs = document.querySelectorAll("#tab");
 const contents = document.querySelectorAll("#tab-content");
 
 
-
-
 //codigo del menu
 boton.addEventListener('click', () => {
     menu.classList.toggle("hidden");
@@ -112,7 +110,7 @@ if (!(tabs === null)) {
 //setInterval(actualizarEnVivo, 5000);
 
 
-/*
+
 function actualizarEnVivo() {
     let horaActual = new Date();
     let horaData = Number(horaActual.getHours()) + Number("0." + horaActual.getMinutes());
@@ -148,7 +146,7 @@ function actualizarEnVivo() {
 }
 
 
-console.log(listaData);*/
+console.log(listaData);
 
 /*
 3 adaptadores display port a hdmi hembra

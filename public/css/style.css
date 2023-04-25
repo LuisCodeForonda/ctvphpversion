@@ -4,11 +4,42 @@
     background: linear-gradient(90deg, rgba(11, 10, 36, 1) 1%, rgba(121, 9, 9, 1) 52%, rgba(38, 4, 10, 1) 100%);
 }
 
+.dropdown-li {
+    position: relative;
+}
+
+.dropdown-li:hover .dropdown {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown {
+    background-color: slateblue;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    opacity: 0;
+    display: none;
+    background: red;
+    z-index: 10;
+}
+
+.dropdown li {
+    list-style: none;
+    padding: .5rem 1rem;
+}
+
+.dropdown li:hover {
+   background: gray;
+}
+
 /*----nav bar----*/
 .menu_item {
     transition: all .3s;
 }
-
 
 .logo {
     animation: rotar 5s infinite;
@@ -27,10 +58,14 @@
 }
 
 .noticiaestilos>p {
+    /*line-height: 1.5rem;
+    font-size: 1.125rem;*/
+    font-size: 1rem;
+    /* 16px */
     line-height: 1.5rem;
-    font-size: 1.125rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    color: rgb(17 24 39);
 }
 
 .noticiaestilos>h1 {
@@ -77,6 +112,26 @@
     font-weight: bold;
     animation: vivoanimacion 3s infinite;
 }
+
+/*emil*/
+
+.mail__icon{
+    overflow: hidden;
+}
+
+.mail{
+    display: block;
+    position: relative;
+    transform: translateX(113px);
+    transition: 300ms;
+    overflow: hidden;
+}
+
+.mail:hover {
+    transform: translateX(0);
+}
+
+.item__list {}
 
 @keyframes vivoanimacion {
     0% {

@@ -28,9 +28,10 @@
         <ul>
   
           @foreach ($lunesviernes as $item)
-          <li class="flex flex-row ">
+          <li class="flex flex-row item__list">
             <strong class="inline-block border-t-4 border-red-600 p-4">{{ substr($item->hora, 0, 5) }}</strong>
             <p class="inline-block border-t-4 border-red-300/50 w-full p-4">{{ $item->nombre }}</p>
+            <p class="block border-t-4 border-red-300/50 p-4 w-24">En vivo</p>
           </li>
           @endforeach
   

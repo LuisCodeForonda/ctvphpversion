@@ -9,6 +9,7 @@ use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ProgramacionController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\UserController;
+use App\Models\Programa;
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,6 +36,7 @@ Route::get('/quienessomos', [HomeController::class, 'quienessomos'])->name('quie
 Route::get('/programacion', [HomeController::class, 'programacion'])->name('programacion');
 Route::get('/programas', [HomeController::class, 'programas'])->name('programas');
 Route::get('/contactos', [HomeController::class, 'contactos'])->name('contactos');
+Route::get('/correos', [HomeController::class, 'correos'])->name('correos');
 
 //envio de correos
 Route::post('/contactos', [MessagesController::class, 'store'])->name('contactos');
@@ -51,17 +53,24 @@ Route::get('/admin', function(){
 
 Route::prefix('/admin')->group(function(){
     Route::get('/programacion', [ProgramacionController::class, 'index'])->middleware(['auth', 'can:programacion.index'])->name('programacion.index');
-    Route::get('/programacion/create', [ProgramacionController::class, 'create'])->middleware('auth')->name('programacion.create');
+    Route::get('/programacion/create', [ProgramacionController::class, 'create'])->middleware(['auth', 'can:programacion.create'])->name('programacion.create');
     Route::post('/programacion', [ProgramacionController::class, 'store'])->middleware('auth')->name('programacion.store');
-    Route::get('/programacion/{programacion}/edit', [ProgramacionController::class, 'edit'])->middleware('auth')->name('programacion.edit');
+    Route::get('/programacion/{programacion}/edit', [ProgramacionController::class, 'edit'])->middleware(['auth', 'can:programacion.edit'])->name('programacion.edit');
     Route::patch('/programacion/{programacion}', [ProgramacionController::class, 'update'])->middleware('auth')->name('programacion.update');
-    Route::delete('/programacion/{programacion}', [ProgramacionController::class, 'destroy'])->middleware('auth')->name('programacion.destroy');
+    Route::delete('/programacion/{programacion}', [ProgramacionController::class, 'destroy'])->middleware(['auth', 'can:programacion.destroy'])->name('programacion.destroy');
 
     /*
     Route::get('/programas', [ProgramaController::class, 'index'])->name('programas.index');
     Route::get('/programas/create', [ProgramaController::class, 'create'])->name('programas.create');
     Route::post('/programas', [ProgramaController::class, 'store'])->name('programas.store');*/
     Route::resource('programas', ProgramaController::class)->middleware(['auth', 'can:programas.index']);
+    /*Route::get('/programas', [ProgramaController::class, 'index'])->name('programas.index');
+    Route::get('/programas');
+    Route::get('/programas');
+    Route::get('/programas');
+    Route::get('/programas');
+    Route::get('/programas');*/
+
     Route::resource('noticias', NoticiaController::class)->middleware(['auth', 'can:noticias.index']);
     Route::resource('banners', BannerController::class)->middleware(['auth', 'can:banners.index']);
     Route::resource('miniaturas', MiniaturaController::class)->middleware(['auth', 'can:miniaturas.index']);
