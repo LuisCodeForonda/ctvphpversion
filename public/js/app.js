@@ -107,24 +107,28 @@ if (!(tabs === null)) {
 
 
 /** funcion para mostrar el programa actual */
-//setInterval(actualizarEnVivo, 5000);
+setInterval(actualizarEnVivo, 5000);
+
 
 
 
 function actualizarEnVivo() {
+    //obtenemos la hora actual
     let horaActual = new Date();
     let horaData = Number(horaActual.getHours()) + Number("0." + horaActual.getMinutes());
 
-    let listaProgra = document.querySelectorAll(".hour");
+    //elementos de la lista
+    let listaProgra = document.querySelectorAll(".item__list");
     let listaData = []
 
     console.log(listaProgra);
     for (let index = 0; index < listaProgra.length; index++) {
-        let element = Number(listaProgra[index].innerHTML.slice(0, 2)) + Number("0." + listaProgra[index].innerHTML.slice(3, 4));
-        listaData.push(element);
+        let hora_html = listaProgra[index].firstElementChild.innerHTML;
+        console.log(hora_html);
     }
 
 
+    /*
     for (let index = 0; index < listaData.length - 1; index++) {
         if (listaData[index] < horaData && horaData < listaData[index + 1]) {
             console.log("si se cumplio");
@@ -142,11 +146,11 @@ function actualizarEnVivo() {
         } else {
 
         }
-    }
+    }*/
 }
 
 
-console.log(listaData);
+//console.log(listaData);
 
 /*
 3 adaptadores display port a hdmi hembra

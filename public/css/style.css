@@ -120,6 +120,8 @@
 }
 
 .mail{
+    background-color: #172554;
+    color: #fff;
     display: block;
     position: relative;
     transform: translateX(113px);

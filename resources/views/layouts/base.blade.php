@@ -14,8 +14,8 @@
     <title>CTV Bolivia @yield('subtitulo')</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <script src="https://cdn.tailwindcss.com"></script>
-    @vite('resources/css/app.css')
+    {{-- <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css') --}}
 </head>
 
 <body>
@@ -26,12 +26,17 @@
             class="relative z-1 h-full container max-w-screen-xl mx-auto  p-2 flex flex-col justify-between sm:flex-row sm:items-center">
             <a href="{{ route('index') }}" class="w-32 h-20"><img src="{{ asset('assets/Logo.png') }}" alt=""
                     class="logo w-full h-full"></a>
-            <div class="text-white font-medium">
-                <p class=""><i class="fa-solid fa-location-dot pr-2"></i>C. Dias Romero #1370, La Paz - Bolivia
-                </p>
-                <p class=""><i class="fa-solid fa-phone pr-2"></i>222 06 55, 222 06 05</p>
-                <a href="{{ route('correos') }}"><i class="fa-solid fa-envelope pr-2"></i>Correos</a>
-                <p><i class="fa-brands fa-whatsapp text-lime-500 text-xl pr-2"></i>wahtsapp</p>
+            <div class="text-white font-medium flex flex-row justify-between sm:flex-col">
+                <div>
+                    <p class=""><i class="fa-solid fa-location-dot pr-2"></i>C. Dias Romero #1370, La Paz -
+                        Bolivia
+                    </p>
+                    <p class=""><i class="fa-solid fa-phone pr-2"></i>222 06 55, 222 06 05</p>
+                </div>
+                <div>
+                    <a href="{{ route('correos') }}"><i class="fa-solid fa-envelope pr-2"></i>Correos</a>
+                    <p><i class="fa-brands fa-whatsapp text-lime-500 text-xl pr-2"></i>wahtsapp</p>
+                </div>
             </div>
         </div>
     </header>
