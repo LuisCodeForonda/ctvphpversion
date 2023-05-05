@@ -14,8 +14,7 @@
     <title>CTV Bolivia @yield('subtitulo')</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=7">
-    {{-- <script src="https://cdn.tailwindcss.com"></script>
-    @vite('resources/css/app.css') --}}
+
 </head>
 
 <body>
@@ -35,7 +34,7 @@
                 </div>
                 <div>
                     <a href="{{ route('correos') }}"><i class="fa-solid fa-envelope pr-2"></i>Correos</a>
-                    <p><i class="fa-brands fa-whatsapp text-lime-500 text-xl pr-2"></i>wahtsapp</p>
+                    <p><i class="fa-brands fa-whatsapp text-lime-500 text-xl pr-2"></i>62221482</p>
                 </div>
             </div>
         </div>
@@ -150,10 +149,10 @@
                 <p class="mb-2"><strong>Correo:</strong> contabilidad@ctvbolivia.com</p>
 
                 <h3 class="font-bold text-xl">Área producción</h3>
-                <p class="mb-2"><strong>Correo:</strong> espinoza@ctvbolivia.com</p>
+                <p class="mb-2"><strong>Correo:</strong> produccion@ctvbolivia.com</p>
 
                 <h3 class="font-bold text-xl">Área programación</h3>
-                <p class="mb-2"><strong>Correo:</strong> quintanilla@ctvbolivia.com</p>
+                <p class="mb-2"><strong>Correo:</strong> programacion@ctvbolivia.com</p>
             </div>
             <div class="mt-2 md:w-1/4 md:mt-0">
                 <h3 class="font-bold text-xl mb-2">Enlaces</h3>

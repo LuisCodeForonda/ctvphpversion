@@ -22,7 +22,7 @@ boton.addEventListener('click', () => {
 //codigo de las opciones del menu
 menuitems.forEach((menuitem, index) => {
     menuitem.addEventListener("click", () => {
-        console.log("esta aqui")
+        //console.log("esta aqui")
         menuitems.forEach((menuitem) => menuitem.classList.remove("border-b-2"));
         menuitem.classList.add("border-b-2");
 
@@ -107,7 +107,7 @@ if (!(tabs === null)) {
 
 
 /** funcion para mostrar el programa actual */
-setInterval(actualizarEnVivo, 5000);
+setTimeout(actualizarEnVivo, 3000);
 
 
 
@@ -119,39 +119,62 @@ function actualizarEnVivo() {
 
     //elementos de la lista
     let listaProgra = document.querySelectorAll(".item__list");
-    let listaData = []
+    let listaHoras = []
 
-    console.log(listaProgra);
+    //obteniendo las horas de programacion
     for (let index = 0; index < listaProgra.length; index++) {
-        let hora_html = listaProgra[index].firstElementChild.innerHTML;
-        console.log(hora_html);
+        listaHoras.push(listaProgra[index].firstElementChild.innerHTML);
     }
 
+    //comparamos en la hora y minuto actual con el rango de las horas de programacion
+    for (let index = 0; index < listaHoras.length - 1; index++) {
 
-    /*
-    for (let index = 0; index < listaData.length - 1; index++) {
-        if (listaData[index] < horaData && horaData < listaData[index + 1]) {
-            console.log("si se cumplio");
-            console.log(horaData + "esta entre" + listaData[index] + " y " + listaData[index + 1]);
-            const nodo = document.createElement("div");
-            nodo.classList.add("inline-block");
-            nodo.classList.add("border-t-4");
-            nodo.classList.add("border-red-300/50");
-            nodo.classList.add("w-36");
-            nodo.classList.add("p-4");
-            nodo.classList.add("vivo");
-            nodo.innerHTML = "en vivo";
-            //<div class="inline-block border-t-4 border-red-300/50 w-36 p-4 vivo">en vivo</div>
-            listaProgra[index].parentNode.appendChild(nodo);
-        } else {
-
+        hactual = String(horaActual.getHours() + ":" + horaActual.getMinutes());
+        hinicio = String(listaHoras[index]);
+        hfin = String(listaHoras[index + 1]);
+        console.log(hactual+" "+hinicio+" "+hfin);
+      
+        if(devolerEstado(hactual, hinicio, hfin)){
+            const p = document.createElement("p");
+            const cls = ["block","border-t-4","border-red-300/50", "p-4", "w-24"];
+            p.classList.add(...cls);
+            p.textContent += "En vivo";
+            listaProgra[index].appendChild(p);
+            console.log(listaProgra[index]);
+            console.log("bien");
+            break;
+        }else{
+            console.log("error");
         }
-    }*/
+        
+    }
+    //revistabuenosdias@ctvbolivia.com
 }
 
+function devolerEstado(valor, inicio, fin) {
+    hactual = Number(valor.slice(0, 2) + valor.slice(-2));
+    hinicio = Number(inicio.slice(0, 2) + inicio.slice(-2));
+    hfin = Number(fin.slice(0, 2) + fin.slice(-2));
+    console.log(hactual + " - " + hinicio+ " " + hfin)
+    return hactual >= hinicio && hactual <= hfin;
+}
 
 //console.log(listaData);
 
 /*
 3 adaptadores display port a hdmi hembra
 3 adaptadores vga hembra a hdmi macho*/
+
+/**----codigo para las fechas de las noticias-----**/
+setTimeout(ajustarFecha, 300);
+function ajustarFecha() {
+    let fecha = String(document.querySelector('.fecha_noticia').innerHTML);
+    //0000-00-00
+    let meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+    let age = Number(fecha.slice(0, 4));
+    let mes = Number(fecha.slice(5, 7));
+    let dia = Number(fecha.slice(8));
+    //console.log(dia + " g " + mes + " g " + age);
+    let formatoFecha = dia + " de " + meses[mes - 1] + " " + age;
+    document.querySelector(".fecha_noticia").innerHTML = formatoFecha;
+};

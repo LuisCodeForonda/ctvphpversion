@@ -56,7 +56,7 @@
                     @if ($item->categoria == 6)
                         Entrenamiento
                     @endif
-                </span> | {{ $item->fecha }}</p>
+                </span> | <span class="fecha_noticia">{{ $item->fecha }}</span></p>
                 <a href="{{ route('detallenoticia', $item->slug) }}" class="font-bold text-2xl">
                     {{ $item->titulo }}
                 </a>
